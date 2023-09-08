@@ -14,7 +14,7 @@ jobs:
         continue-on-error: true
         uses: PortSwigger/dastardly-github-action@main
         with:
-          target-url: 'https://ginandjuice.shop'
+          target-url: 'https://app.membranelabs.com'
 
       # You can replace this next step with any JUnit XML parser of your choosing
       - name: Publish Test Report
