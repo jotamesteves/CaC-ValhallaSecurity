@@ -1,0 +1,30 @@
+name: Mi Flujo de Trabajo
+
+on:
+  push:
+    branches:
+      - main  # Ejecutar cuando se haga un push a la rama main
+
+jobs:
+  mi_trabajo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Paso 1
+        run: echo "Este es el paso 1"
+
+      - name: Run Dastardly Action Step
+        continue-on-error: true
+        uses: PortSwigger/dastardly-github-action@main
+        with:
+          target-url: 'https://ginandjuice.shop'
+
+      - name: Publish Test Report
+        if: always()
+        uses: jotamesteves/CaC-ValhallaSecurity/action-junit-report@v1
+        with:
+          report_paths: '**/dastardly-report.xml'
+          require_tests: true
+
+      - name: Paso 2
+        run: echo "Este es el paso 2"
