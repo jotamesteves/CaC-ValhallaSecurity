@@ -21,10 +21,7 @@ jobs:
 
       - name: Publish Test Report
         if: always()
-        uses: jotamesteves/CaC-ValhallaSecurity/action-junit-report@v1
+        uses: jotamesteves/CaC-ValhallaSecurity/action-junit-report@main
         with:
           report_paths: '**/dastardly-report.xml'
           require_tests: true
-
-      - name: Paso 2
-        run: echo "Este es el paso 2"
